@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XeB's Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ab66e1dbf2.js" crossorigin="anonymous"></script>
+    <style>
+        .playlist {
+            display: none;
+            background: rgba(255, 255, 255, 0.9);
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .playlist ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .playlist-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="musicPlayer">
+        <nav>
+            <div class="circle" id="prev-song">
+                <i class="fa-solid fa-angle-left"></i>
+            </div>
+            <div class="circle" id="playlist-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+
+        <img src="img/perfect.png" class="song" id="song-image">
+        <h1 id="song-title">PERFECT</h1>
+        <p id="artist-name">Ed Sheeran</p>
+
+        <audio id="music">
+            <source src="img/perfect.mp3">
+        </audio>
+
+        <input type="range" value="0" id="progress">
+        <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+        
+        <div class="controls">
+            <div id="prev"><i class="fa-solid fa-backward"></i></div>
+            <div id="play-pause"><i class="fa-solid fa-play" id="play-icon"></i></div>
+            <div id="next"><i class="fa-solid fa-forward"></i></div>
+        </div>
+
+        <div class="playlist" id="playlist">
+            <ul>
+                <li class="playlist-item" data-src="img/perfect.mp3" data-title="Perfect" data-artist="Ed Sheeran" data-img="img/perfect.png">Perfect - Ed Sheeran</li>
+                <li class="playlist-item" data-src="img/despacito.mp3" data-title="Despacito" data-artist="Luis Ponsi" data-img="img/despacito.png">Despacito - Luis Ponsi</li>
+                <li class="playlist-item" data-src="img/we don't talk anymore.mp3" data-title="We don't talk anymore" data-artist="Charlie Puth" data-img="img/we don't talk anymore.png">We don't talk anymore - Charlie Puth</li>
+                <li class="playlist-item" data-src="img/believer.mp3" data-title="Believer" data-artist="Imagine Dragons" data-img="img/believer.png">Believer - Imagine Dragons</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+    
+</body>
+
+</html>
