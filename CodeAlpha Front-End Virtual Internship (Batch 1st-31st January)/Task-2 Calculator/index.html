@@ -3,49 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Calculator</title>
+    <title>XeB's Advance Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="calculator-container">
         <div class="calculator">
+            <div class="mode-toggle">
+                <button class="mode-btn active" data-mode="basic">Basic</button>
+                <button class="mode-btn" data-mode="scientific">Scientific</button>
+                <button class="mode-btn" data-mode="programmer">Programmer</button>
+            </div>
+            
             <div class="display">
-                <div class="history" id="history"></div>
-                <input type="text" class="current-entry" id="display" readonly>
+                <div class="previous-operand"></div>
+                <div class="current-operand">0</div>
             </div>
+
+            <div class="base-selector" style="display: none;">
+                <button class="base-btn active" data-base="DEC">DEC</button>
+                <button class="base-btn" data-base="HEX">HEX</button>
+                <button class="base-btn" data-base="OCT">OCT</button>
+                <button class="base-btn" data-base="BIN">BIN</button>
+            </div>
+
             <div class="buttons">
-                <button class="btn func" data-value="sin(">sin</button>
-                <button class="btn func" data-value="cos(">cos</button>
-                <button class="btn func" data-value="tan(">tan</button>
-                <button class="btn func" data-value="log(">log</button>
-                <button class="btn func" data-value="√(">√</button>
-                <button class="btn func" data-value="^">^</button>
-                <button class="btn func" data-value="π">π</button>
-                <button class="btn func" data-value="(">(</button>
-                <button class="btn func" data-value=")">)</button>
-                <button class="btn operator" data-value="%">%</button>
-                <button class="btn operator" data-value="/">/</button>
-                
-                <button class="btn number" data-value="7">7</button>
-                <button class="btn number" data-value="8">8</button>
-                <button class="btn number" data-value="9">9</button>
-                <button class="btn operator" data-value="*">×</button>
-                
-                <button class="btn number" data-value="4">4</button>
-                <button class="btn number" data-value="5">5</button>
-                <button class="btn number" data-value="6">6</button>
-                <button class="btn operator" data-value="-">−</button>
-                
-                <button class="btn number" data-value="1">1</button>
-                <button class="btn number" data-value="2">2</button>
-                <button class="btn number" data-value="3">3</button>
-                <button class="btn operator" data-value="+">+</button>
-                
-                <button class="btn number" data-value="0">0</button>
-                <button class="btn number" data-value=".">.</button>
-                <button class="btn clear" id="clear">C</button>
-                <button class="btn equals" id="equals">=</button>
+                <div class="scientific-pad" style="display: none;">
+                    <button class="function" data-action="factorial">x!</button>
+                    <button class="function" data-action="power2">x²</button>
+                    <button class="function" data-action="power3">x³</button>
+                    <button class="function" data-action="powerY">xʸ</button>
+                    <button class="function" data-action="sin">sin</button>
+                    <button class="function" data-action="cos">cos</button>
+                    <button class="function" data-action="tan">tan</button>
+                    <button class="function" data-action="ln">ln</button>
+                    <button class="function" data-action="log">log</button>
+                    <button class="function" data-action="exp">exp</button>
+                    <button class="function" data-action="pi">π</button>
+                    <button class="function" data-action="e">e</button>
+                    <button class="function" data-action="rad">Rad</button>
+                    <button class="function" data-action="deg">Deg</button>
+                    <button class="function" data-action="inverse">1/x</button>
+                </div>
+
+                <div class="basic-pad">
+                    <button class="operator" data-action="clear">C</button>
+                    <button class="operator" data-action="delete">⌫</button>
+                    <button class="operator" data-action="percentage">%</button>
+                    <button class="operator" data-operation="÷">÷</button>
+                    
+                    <button class="number" data-number="7">7</button>
+                    <button class="number" data-number="8">8</button>
+                    <button class="number" data-number="9">9</button>
+                    <button class="operator" data-operation="×">×</button>
+                    
+                    <button class="number" data-number="4">4</button>
+                    <button class="number" data-number="5">5</button>
+                    <button class="number" data-number="6">6</button>
+                    <button class="operator" data-operation="-">-</button>
+                    
+                    <button class="number" data-number="1">1</button>
+                    <button class="number" data-number="2">2</button>
+                    <button class="number" data-number="3">3</button>
+                    <button class="operator" data-operation="+">+</button>
+                    
+                    <button class="number" data-number="0">0</button>
+                    <button class="number" data-number=".">.</button>
+                    <button class="operator" data-action="sqrt">√</button>
+                    <button class="operator equals" data-action="compute">=</button>
+                </div>
             </div>
+        </div>
+
+        <div class="history-panel">
+            <div class="history-header">
+                <h3>History</h3>
+                <button class="clear-history" data-action="clearHistory">Clear History</button>
+            </div>
+            <div class="history-content"></div>
         </div>
     </div>
     <script src="script.js"></script>
